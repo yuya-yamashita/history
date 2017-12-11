@@ -4,7 +4,7 @@ class Diary < ApplicationRecord
   validates :user_id, presence: true
 
   belongs_to :user
-	has_many: comment, dependent : destroy
-	has_many: diary_tag, dependent : destroy
-	has_many: tag, through: : diary_tag
+	has_many :comments, dependent: :destroy
+	has_many :diary_tags, dependent: :destroy
+	has_many :tags, through: :diary_tag
 end

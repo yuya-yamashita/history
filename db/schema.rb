@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206125754) do
+ActiveRecord::Schema.define(version: 20171211140351) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment", null: false
     t.integer "diary_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["diary_id"], name: "index_comments_on_diary_id", unique: true
   end
 
   create_table "diaries", force: :cascade do |t|
@@ -33,12 +34,11 @@ ActiveRecord::Schema.define(version: 20171206125754) do
     t.integer "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["diary_id", "tag_id"], name: "index_diary_tags_on_diary_id_and_tag_id", unique: true
   end
 
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false
-    t.string "string", null: false
-    t.integer "diary_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_tags_on_name"
@@ -47,9 +47,10 @@ ActiveRecord::Schema.define(version: 20171206125754) do
   create_table "user_tags", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "tag_id", null: false
-    t.integer "count", null: false
+    t.integer "tag_count", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "tag_id"], name: "index_user_tags_on_user_id_and_tag_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,7 +60,6 @@ ActiveRecord::Schema.define(version: 20171206125754) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["name"], name: "index_users_on_name", unique: true
   end
 
 end
