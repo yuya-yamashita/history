@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates :name, presence: true, :name, length: { minimum: 5 }, :name, uniqueness: true
-  validates :email, presence: true, :email, uniqueness: true, :email, format: { with: VALID_EMAIL_REGEX }
+  validates :name, presence: true, length: { minimum: 5 }, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, length: { minimum: 5 }
 
   has_many :diaries, dependent: :destroy
