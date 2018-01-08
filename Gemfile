@@ -66,3 +66,4 @@ group :development, :test do
 end
 gem 'bcrypt'
 gem "carrierwave"
+gem 'rails-i18n'
