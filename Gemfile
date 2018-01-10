@@ -67,3 +67,4 @@ end
 gem 'bcrypt'
 gem "carrierwave"
 gem 'rails-i18n'
+gem 'pry-byebug'

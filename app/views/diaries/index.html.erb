@@ -6,17 +6,26 @@
 				<div class="col-md-offset-4 col-md-4 users-new-container">
       		<div class="diary-index-single">
 	        	<h2 class='text-white'>
-	       			<%= diary.user.name %>
+	       			<!--<%= diary.user.name %>-->
 		        </h2>
-            <%= link_to comments_new_path(diary_id: diary.id) do %>
-              <%= "コメント" %>
-            <% end %>
 						<p class='text-white'>
-		        	<%= diary.title %>
+		        	タイトル：<%= diary.title %>
 		        </p>
 		       	<p class='text-white'>
-		       		<%= diary.body %>
+		       		Body：<%= diary.body %>
 		        </p>
+            <p class="comment">
+              <%= link_to comments_new_path(diary_id: diary.id) do %>
+                <%= "コメント" %>
+              <% end %>
+            </p>
+            <p>貰ったコメント</p>
+
+            <% diary.comments.each do |comment| %>
+              <p class="topic-text">
+                <%= comment.comment_body %>
+              </p>
+            <% end %>
 		    	</div>
 				</div>
 			</div>

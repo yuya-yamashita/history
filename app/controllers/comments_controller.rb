@@ -5,10 +5,12 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    #binding.pry
+    @comment.user_id = current_user.id
     if @comment.save
       redirect_to diaries_path, notice: 'コメントの登録に成功しました'
     else
-      redirect_to comment_new_path, alert: 'コメントの登録に失敗しました'
+      redirect_to comments_new_path, alert: 'コメントの登録に失敗しました'
     end
   end
 
