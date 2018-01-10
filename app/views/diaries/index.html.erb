@@ -1,0 +1,25 @@
+<div class="diary-index-wrapper">
+  <div class="container">
+		<h1 class="text-center text-white">投稿一覧</h1>
+		<% @diaries.each do |diary| %>
+			<div class="row">
+				<div class="col-md-offset-4 col-md-4 users-new-container">
+      		<div class="diary-index-single">
+	        	<h2 class='text-white'>
+	       			<%= diary.user.name %>
+		        </h2>
+            <%= link_to comments_new_path(diary_id: diary.id) do %>
+              <%= "コメント" %>
+            <% end %>
+						<p class='text-white'>
+		        	<%= diary.title %>
+		        </p>
+		       	<p class='text-white'>
+		       		<%= diary.body %>
+		        </p>
+		    	</div>
+				</div>
+			</div>
+	  <% end %>
+	</div>
+</div>

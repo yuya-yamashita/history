@@ -21,6 +21,16 @@
                   <%="ログアウト"%>
                 <% end %>
               </li>
+              <li>
+                <%= link_to new_diary_path do %>
+                  <%= '日記投稿' %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to diaries_path do %>
+                  <%= '投稿一覧' %>
+                <% end %>
+              </li>
             <% else %>
               <li>
                 <%= link_to new_user_path do %>
@@ -50,6 +60,7 @@
         <%= flash[:alert] %>
       </div>
     <% end %>
+  </nav>
     <%= yield %>
   </body>
 </html>

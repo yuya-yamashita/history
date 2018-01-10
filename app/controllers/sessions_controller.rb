@@ -19,13 +19,13 @@ class SessionsController < ApplicationController
 
   private
   def log_in(user)
-    session[:login_user_id] = user.id
+    session[:user_id] = user.id
     #login_user_id
     #カレントユーザcurrent_user applictation_
   end
 
   def log_out
-    session.delete(:login_user_id)
+    session.delete(:user_id)
     @current_user = nil
   end
 end
