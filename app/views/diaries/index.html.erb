@@ -5,9 +5,6 @@
 			<div class="row">
 				<div class="col-md-offset-4 col-md-4 users-new-container">
       		<div class="diary-index-single">
-	        	<h2 class='text-white'>
-	       			<!--<%= diary.user.name %>-->
-		        </h2>
 						<p class='text-white'>
 		        	タイトル：<%= diary.title %>
 		        </p>
@@ -20,10 +17,9 @@
               <% end %>
             </p>
             <p>貰ったコメント</p>
-
             <% diary.comments.each do |comment| %>
               <p class="topic-text">
-                <%= comment.comment_body %>
+                <%= comment.content %>
               </p>
             <% end %>
 		    	</div>

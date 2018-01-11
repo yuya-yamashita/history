@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    #binding.pry
     @comment.user_id = current_user.id
     if @comment.save
       redirect_to diaries_path, notice: 'コメントの登録に成功しました'
@@ -16,6 +15,6 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:diary_id, :comment_body)
+    params.require(:comment).permit(:diary_id, :content)
   end
 end

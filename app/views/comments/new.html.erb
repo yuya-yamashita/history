@@ -15,8 +15,8 @@
         <h1 class="text-center text-white">Add Comment</h1>
         <%= form_for @comment do |f| %>
           <div class="form-group">
-            <%= f.label :comment_body, class: 'text-white'%>
-            <%= f.text_area :comment_body, class: 'form-control' %>
+            <%= f.label :content, class: 'text-white'%>
+            <%= f.text_area :content, class: 'form-control' %>
             <%= f.hidden_field :diary_id, :value => params[:diary_id] %>
           </div>
           <%= f.submit 'コメントする！', class: 'btn btn-black btn-block' %>
