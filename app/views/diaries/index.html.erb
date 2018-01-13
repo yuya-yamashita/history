@@ -12,7 +12,7 @@
 		       		Body：<%= diary.body %>
 		        </p>
             <p class="comment">
-              <%= link_to comments_new_path(diary_id: diary.id) do %>
+              <%= link_to new_comment_path(diary_id: diary.id) do %>
                 <%= "コメント" %>
               <% end %>
             </p>
