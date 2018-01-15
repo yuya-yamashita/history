@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    @diaries = Diary.all
     @tags = Tag.all
     @tags_count = ActsAsTaggableOn::Tag.most_used(5)
   end
