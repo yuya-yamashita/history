@@ -1,18 +1,19 @@
 <div class="diary-index-wrapper">
   <div class="container">
 		<h1 class="text-center text-white">マイページ</h1>
-		<% @diaries.each do |diary| %>
 			<div class="row">
       	<div class="diary-index-single">
-					日記一覧
-					<p class='text-white'>
-		       	タイトル：<%= diary.title %>
-		      </p>
+					<h4>タグ一覧</h4>
 					<% @tags.each do |tag| %>
 						<%= tag.name %>
 					<% end %>
+				</div>
+				<div class="diary-index-single">
+					<h4>タグ使用数ランキング上位５位</h4>
+					<% @tags_count.each do |tag_count| %>
+						<%= tag_count %>
+					<% end %>
 		    </div>
 			</div>
-	  <% end %>
 	</div>
 </div>
