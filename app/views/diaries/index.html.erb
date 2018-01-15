@@ -8,12 +8,15 @@
 						<p class='text-white'>
 		        	タイトル：<%= diary.title %>
 		        </p>
+            <p class='text-white'>
+		       		タグ：<%= diary.label_list %>
+		        </p>
 		       	<p class='text-white'>
 		       		Body：<%= diary.body %>
 		        </p>
-            <p class="comment">
+            <p class="button-style">
               <%= link_to new_comment_path(diary_id: diary.id) do %>
-                <%= "コメント" %>
+                <%= "コメントする" %>
               <% end %>
             </p>
             <p>貰ったコメント</p>
@@ -22,6 +25,11 @@
                 <%= comment.content %>
               </p>
             <% end %>
+            <p class="button-style">
+              <%= link_to diaries_delete_url(diary_id: diary.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+              <%="投稿を削除する"%>
+              <% end %>
+            </p>
 		    	</div>
 				</div>
 			</div>

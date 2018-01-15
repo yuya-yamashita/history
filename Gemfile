@@ -68,3 +68,4 @@ gem 'bcrypt'
 gem "carrierwave"
 gem 'rails-i18n'
 gem 'pry-byebug'
+gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'

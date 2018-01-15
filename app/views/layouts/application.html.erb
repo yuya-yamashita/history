@@ -16,11 +16,16 @@
           <% end %>
           <ul class="nav navbar-nav navbar-right">
             <% if logged_in? %>
-              <li>
-                <%= link_to logout_path, method: :delete do %>
-                  <%="ログアウト"%>
-                <% end %>
-              </li>
+            <li>
+              <%= link_to root_path do %>
+                <%="トップページ"%>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_path do %>
+                <%="マイページ"%>
+              <% end %>
+            </li>
               <li>
                 <%= link_to new_diary_path do %>
                   <%= '日記投稿' %>
@@ -29,6 +34,11 @@
               <li>
                 <%= link_to diaries_path do %>
                   <%= '投稿一覧' %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to logout_path, method: :delete do %>
+                  <%="ログアウト"%>
                 <% end %>
               </li>
             <% else %>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'diaries/new'
   root 'pages#index'
 
   get    '/login',   to: 'sessions#new'
@@ -8,6 +7,8 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   post '/comments', to: 'comments#create'
+  get 'diaries/new'
+  delete 'diaries/delete',  to: 'diaries#destroy'
 
   resources 'users'
   resources 'diaries'

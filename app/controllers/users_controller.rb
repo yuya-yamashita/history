@@ -13,6 +13,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @diaries = Diary.all
+    @tags = Tag.all
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
