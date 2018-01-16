@@ -12,6 +12,9 @@ body{
              black 1px -1px 1px, black -1px -1px 1px;
 
 }
+.text-black{
+  color: #333333;
+}
 
 .btn-white {
   color: #fff;
@@ -89,7 +92,8 @@ form-control {
 }
 .diary-index-wrapper{
   width: 100vw;
-  height: auto;
+  height: 2000px;
+  max-height: auto;
   padding-top: 250px;
   padding-bottom: 150px;
   background-image: image-url('bg-top.png');
@@ -100,15 +104,181 @@ form-control {
   background-color: #464646;
   .diary-index-single {
     background-color: #fff;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 25px;
     margin-top: 30px;
     border: 1px solid #e6ecf0;
     border-radius: 3px;
     word-wrap: break-word;
   }
 }
-.button-style{
-  text-align: right;
-  margin-left: 50px;
+.diary-layout{
+  margin: 50px;
 }
+
+.text-title {
+  font-weight: bold;
+  font-size: 32px;
+  padding: 10px 10px;
+  position: relative;
+  padding-bottom: .5em;
+  border-bottom: 4px solid #ccc;
+}
+.text-title::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  z-index: 2;
+  content: '';
+  width: 20%;
+  height: 4px;
+  background-color: #3498db;
+}
+.tag-style{
+  color: #333333;
+  font-size: 15px;
+  padding-top: 25px;
+}
+.tag-list{
+  padding-bottom: 30px;
+  font-size: 20px;
+}
+.diary-text{
+  color: #000000;
+  font-family: "メイリオ","Meiryo","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック","MS PGothic",Osaka,sans-serif;
+  font-size: 14px;
+  line-height: 1.75;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  border-bottom: 4px solid #ccc;
+}
+.comment-text{
+  color: #000000;
+  font-family: "メイリオ","Meiryo","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック","MS PGothic",Osaka,sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+}
+.comment-button-style{
+  font-size: 17px;
+  padding-bottom: 20px;
+}
+.fl_tw {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  color: #1da1f3;
+  font-size: 25px;
+  text-decoration: none;
+  }
+
+.fl_tw:hover {
+  color:#88daff;
+  transition: .5s;
+}
+
+.fl_tw .twicon{
+  border-radius: 10px;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  font-size: 35px;
+  line-height: 50px;
+  vertical-align: middle;
+  color: #FFF;
+  background: #1da1f3;
+}
+
+.fl_tw .twicon .fa {
+  line-height: 50px;
+}
+.fl_fb {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  color: #4966a0;;
+  font-size: 25px;
+  text-decoration: none;
+  }
+
+.fl_fb:hover {
+  color:#668ad8;
+  transition: .5s;
+}
+
+.fl_fb .fbicon{
+  border-radius: 10px;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  font-size: 35px;
+  line-height: 50px;
+  vertical-align: middle;
+  color: #FFF;
+  background: #4966a0;;
+}
+
+.fl_fb .fbicon .fa-facebook {
+    position: absolute;
+    bottom: -3px;
+    right: 6px;
+    font-size: 42px;
+}
+.fl_inst {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  color: #2e6ca5;
+  font-size: 25px;
+  text-decoration: none;
+  }
+
+.fl_inst:hover {
+  color:#668ad8;
+  transition: .5s;
+}
+
+.fl_inst .insta{
+  border-radius: 13px;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  font-size: 35px;
+  line-height: 50px;
+  vertical-align: middle;
+  background: -webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+  background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+  overflow: hidden
+}
+
+.fl_inst .insta:before{
+  content: '';
+  position: absolute;
+  top: 23px;
+  left: -18px;
+  width: 60px;
+  height: 60px;
+  background: -webkit-radial-gradient(#ffdb2c 10%, rgba(255, 105, 34, 0.65) 55%, rgba(255, 88, 96, 0) 70%);
+  background: radial-gradient(#ffdb2c 10%, rgba(255, 105, 34, 0.65) 55%, rgba(255, 88, 96, 0) 70%);
+}
+
+.fl_inst .fa-instagram {
+  color:white;
+  line-height: 50px;
+  position: relative;
+  z-index: 2
+}
+.give-comment{
+  padding: .25em 0 .25em .75em;
+  border-left: 6px solid #ccc;
+  }
+  .right-position{
+     text-align: right;
+  }
+  .delete-button-style{
+    padding: 10px;
+  }

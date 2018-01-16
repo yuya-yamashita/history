@@ -2,37 +2,42 @@
   <div class="container">
 		<h1 class="text-center text-white">投稿一覧</h1>
 		<% @diaries.each do |diary| %>
-			<div class="row">
-				<div class="col-md-offset-4 col-md-4 users-new-container">
-      		<div class="diary-index-single">
-						<p class='text-white'>
-		        	タイトル：<%= diary.title %>
-		        </p>
-            <p class='text-white'>
-		       		タグ：<%= diary.label_list %>
-		        </p>
-		       	<p class='text-white'>
-		       		Body：<%= diary.body %>
-		        </p>
-            <p class="button-style">
+			<div class="diary-layout">
+      	<div class="diary-index-single">
+          <div class='text-whitee'><%= diary.updated_at %></div>
+          <div class='text-title'><%= diary.title %></div>
+          <p class="tag-style">タグ</p>
+          <div class='tag-list'><%= diary.label_list %></div>
+		      <div class='diary-text'><%= diary.body %></div>
+          <p class="comment-button-style">
               <%= link_to new_comment_path(diary_id: diary.id) do %>
                 <%= "コメントする" %>
               <% end %>
-            </p>
-            <p>貰ったコメント</p>
+          </p>
+            <p class="give-comment">貰ったコメント</p>
             <% diary.comments.each do |comment| %>
-              <p class="topic-text">
-                <%= comment.content %>
-              </p>
+              <div class="comment-text"><%= comment.content %></div>
             <% end %>
-            <p class="button-style">
-              <%= link_to diaries_delete_url(diary_id: diary.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
-              <%="投稿を削除する"%>
-              <% end %>
-            </p>
+            <div class="right-position">
+              <a href="#" class="fl_tw">
+                <span class="twicon"><i class="fa fa-twitter"></i></span> Follow Me
+              </a>
+              <a href="#" class="fl_fb">
+                <span class="fbicon"><i class="fa fa-facebook"></i></span> Follow Me
+              </a>
+              <a href="#" class="fl_inst">
+                <span class="insta"><i class="fa fa-instagram"></i></span> Follow Me
+              </a>
+              <div class="delete-button-style">
+                記事を
+                <a href="#" class="">編集する</a>
+                <%= link_to diaries_delete_url(diary_id: diary.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+                <%="削除する"%>
+                <% end %>
+              </div>
+          </div>
 		    	</div>
 				</div>
-			</div>
 	  <% end %>
 	</div>
 </div>

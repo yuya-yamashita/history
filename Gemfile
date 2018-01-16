@@ -69,3 +69,8 @@ gem "carrierwave"
 gem 'rails-i18n'
 gem 'pry-byebug'
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
+source 'https://rails-assets.org' do
+gem 'rails-assets-bootstrap'
+gem 'rails-assets-bootstrap-timepicker'#今回は関係ないですがおすすめです
+gem 'rails-assets-bootstrap-tagsinput'
+end
