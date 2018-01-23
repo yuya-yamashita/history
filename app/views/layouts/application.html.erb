@@ -12,15 +12,15 @@
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
         <div class="container">
-          <%= link_to root_path do %>
-          <% end %>
-          <ul class="nav navbar-nav navbar-right">
-            <% if logged_in? %>
+          <ul class="nav navbar-nav navbar-left">
             <li>
               <%= link_to root_path do %>
-                <%="トップページ"%>
+                <span class="logo-title"><%="History"%></span>
               <% end %>
             </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if logged_in? %>
             <li>
               <%= link_to users_path do %>
                 <%="マイページ"%>
@@ -50,11 +50,6 @@
               <li>
                 <%= link_to login_path do %>
                   <%="ログイン"%>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to root_path do %>
-                  <%="トップページ"%>
                 <% end %>
               </li>
             <% end %>

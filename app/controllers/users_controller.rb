@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def index
     @tags = Tag.all
-    @tags_count = ActsAsTaggableOn::Tag.most_used(5)
+    @tags_count = ActsAsTaggableOn::Tag.most_used(10)
   end
 
   private

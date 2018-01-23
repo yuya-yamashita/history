@@ -8,12 +8,20 @@
 						<%= tag.name %>
 					<% end %>
 				</div>
-				<div class="diary-index-single">
-					<h4>タグ使用数ランキング上位５位</h4>
+				<div class="diary-index-single" style="width:350px;">
+					<h4 class="title-ranking">タグランキングTOP10</h4>
+          <% count = 0%>
 					<% @tags_count.each do |tag_count| %>
-						<%= tag_count %>
+          <table>
+            <tr>
+              <td class="td-ranking"><%= count = count + 1 %>位</td>
+              <td class="td-ranking"><%= tag_count %></td>
+              <td class="td-ranking"><%= tag_count.taggings_count %>回</td>
+            </tr>
+          </table>
 					<% end %>
 		    </div>
+        <table>
 			</div>
 	</div>
 </div>
