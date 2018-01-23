@@ -1,9 +1,9 @@
-<div class="diary-index-wrapper">
+<div class="index-wrapper">
   <div class="container">
 		<h1 class="text-center text-white">投稿一覧</h1>
 		<% @diaries.each do |diary| %>
 			<div class="diary-layout">
-      	<div class="diary-index-single">
+      	<div class="index-single">
           <div class='text-whitee'><%= diary.updated_at %></div>
           <div class='text-title'><%= diary.title %></div>
           <p class="tag-style">タグ</p>

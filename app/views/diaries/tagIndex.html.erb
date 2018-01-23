@@ -1,0 +1,43 @@
+<div class="index-wrapper">
+  <div class="container">
+		<h1 class="text-center text-white">関連記事</h1>
+		<% @tagIndex.each do |tagIndex| %>
+		<div class="diary-layout">
+			<div class="index-single">
+				<div class='text-whitee'><%= tagIndex.updated_at %></div>
+				<div class='text-title'><%= tagIndex.title %></div>
+				<p class="tag-style">タグ</p>
+				<div class='tag-list'><%= tagIndex.label_list %></div>
+				<div class='diary-text'><%= tagIndex.body %></div>
+				<p class="comment-button-style">
+						<%= link_to new_comment_path(diary_id: tagIndex.id) do %>
+							<%= "コメントする" %>
+						<% end %>
+				</p>
+					<p class="give-comment">貰ったコメント</p>
+					<% tagIndex.comments.each do |comment| %>
+						<div class="comment-text"><%= comment.content %></div>
+					<% end %>
+					<div class="right-position">
+						<a href="https://twitter.com/yuya05020" class="fl_tw">
+							<span class="twicon"><i class="fa fa-twitter"></i></span> Follow Me
+						</a>
+						<a href="https://www.facebook.com/yuya.yamashita.5249" class="fl_fb">
+							<span class="fbicon"><i class="fa fa-facebook"></i></span> Follow Me
+						</a>
+						<a href="https://www.instagram.com/yuya.yamashita/?hl=ja" class="fl_inst">
+							<span class="insta"><i class="fa fa-instagram"></i></span> Follow Me
+						</a>
+						<div class="delete-button-style">
+							記事を
+							<a href="#" class="">編集する</a>
+							<%= link_to diaries_delete_url(diary_id: tagIndex.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+							<%="削除する"%>
+							<% end %>
+						</div>
+				</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

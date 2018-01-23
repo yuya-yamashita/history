@@ -22,6 +22,10 @@ class DiariesController < ApplicationController
     @diaries = Diary.all
   end
 
+  def tagIndex
+    @tagIndex = Diary.tagged_with(params[:selected_name])
+  end
+
   private
   def diary_params
     params.require(:diary).permit(:title, :label_list, :body)
