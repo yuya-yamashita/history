@@ -12,10 +12,26 @@ class DiariesController < ApplicationController
     end
   end
 
+  def edit
+    @diary = Diary.find(params[:diary_id])
+  end
+
+  def update
+    @diary = Diary.find(params[:diary][:diary_id])
+    if @diary.update(diary_params)
+      redirect_to diaries_path, notice: '投稿のの編集に成功しました'
+    else
+      render :new
+    end
+  end
+
   def destroy
-    @diary = current_user.diaries.find(params[:diary_id])
-    @diary.destroy
-    redirect_to diaries_path, notice: '投稿を削除しました'
+    @diary = Diary.find(params[:diary_id])
+    if @diary.destroy
+      redirect_to diaries_path, notice: '投稿を削除しました'
+    else
+      redirect_to diaries_path, alert: '投稿の削除に失敗しました'
+    end
   end
 
   def index
@@ -23,7 +39,7 @@ class DiariesController < ApplicationController
   end
 
   def tagIndex
-    @tagIndex = Diary.tagged_with(params[:selected_name])
+    @tags = Diary.tagged_with(params[:selected_name])
   end
 
   private

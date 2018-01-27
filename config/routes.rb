@@ -7,9 +7,12 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   post '/comments', to: 'comments#create'
+  get 'comments/edit', to: 'comments#edit'
+  delete 'comments/delete', to: 'comments#destroy'
 
   get 'diaries/new'
   get 'diaries/tagIndex', to: 'diaries#tagIndex'
+  get 'diaries/edit', to: 'diaries#edit'
   delete 'diaries/delete',  to: 'diaries#destroy'
 
   resources 'users'

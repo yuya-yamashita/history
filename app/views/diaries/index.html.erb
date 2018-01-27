@@ -17,6 +17,15 @@
             <p class="give-comment">貰ったコメント</p>
             <% diary.comments.each do |comment| %>
               <div class="comment-text"><%= comment.content %></div>
+              <div class="delete-button-style">
+                コメントを
+                <%= link_to comments_edit_path(diary_id: diary.id,comment_id: comment.id) do %>
+                <%="編集する"%>
+                <% end %>
+                <%= link_to comments_delete_url(diary_id: diary.id,comment_id: comment.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+                <%="削除する"%>
+                <% end %>
+              </div>
             <% end %>
             <div class="right-position">
               <a href="https://twitter.com/yuya05020" class="fl_tw">
@@ -30,7 +39,9 @@
               </a>
               <div class="delete-button-style">
                 記事を
-                <a href="#" class="">編集する</a>
+                <%= link_to diaries_edit_path(diary_id: diary.id) do %>
+                <%="編集する"%>
+                <% end %>
                 <%= link_to diaries_delete_url(diary_id: diary.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
                 <%="削除する"%>
                 <% end %>

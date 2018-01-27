@@ -1,21 +1,21 @@
 <div class="index-wrapper">
   <div class="container">
 		<h1 class="text-center text-white">関連記事</h1>
-		<% @tagIndex.each do |tagIndex| %>
+		<% @tags.each do |tags| %>
 		<div class="diary-layout">
 			<div class="index-single">
-				<div class='text-whitee'><%= tagIndex.updated_at %></div>
-				<div class='text-title'><%= tagIndex.title %></div>
+				<div class='text-whitee'><%= tags.updated_at %></div>
+				<div class='text-title'><%= tags.title %></div>
 				<p class="tag-style">タグ</p>
-				<div class='tag-list'><%= tagIndex.label_list %></div>
-				<div class='diary-text'><%= tagIndex.body %></div>
+				<div class='tag-list'><%= tags.label_list %></div>
+				<div class='diary-text'><%= tags.body %></div>
 				<p class="comment-button-style">
-						<%= link_to new_comment_path(diary_id: tagIndex.id) do %>
+						<%= link_to new_comment_path(diary_id: tags.id) do %>
 							<%= "コメントする" %>
 						<% end %>
 				</p>
 					<p class="give-comment">貰ったコメント</p>
-					<% tagIndex.comments.each do |comment| %>
+					<% tags.comments.each do |comment| %>
 						<div class="comment-text"><%= comment.content %></div>
 					<% end %>
 					<div class="right-position">
@@ -31,7 +31,7 @@
 						<div class="delete-button-style">
 							記事を
 							<a href="#" class="">編集する</a>
-							<%= link_to diaries_delete_url(diary_id: tagIndex.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+							<%= link_to diaries_delete_url(diary_id: tags.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
 							<%="削除する"%>
 							<% end %>
 						</div>
