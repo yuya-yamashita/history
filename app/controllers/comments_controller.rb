@@ -1,5 +1,10 @@
 class CommentsController < ApplicationController
-  #before_action メソッド名
+  before_action :set_comment, only: [:edit, :destroy]
+
+  def set_comment
+    @comment = Comment.find(params[:comment_id])
+  end
+
   def new
     @comment = Comment.new
   end
@@ -15,7 +20,6 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = Comment.find(params[:comment_id])
   end
 
   def update
@@ -29,8 +33,6 @@ class CommentsController < ApplicationController
 
 
   def destroy
-    #@diary = current_user.diaries.find(params[:diary_id])
-    @comment = Comment.find(params[:comment_id])
     if @comment.destroy
       redirect_to diaries_path, notice: 'コメントを削除しました'
     else

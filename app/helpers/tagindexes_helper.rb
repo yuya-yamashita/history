@@ -1,0 +1,2 @@
+module TagindexesHelper
+end

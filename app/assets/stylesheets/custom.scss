@@ -120,6 +120,7 @@ form-control {
 .index-wrapper{
   width: 100vw;
   max-height: auto;
+  height: 2000px;
   padding-top: 100px;
   padding-bottom: 150px;
   background-image: image-url('bg-top.png');
@@ -341,4 +342,10 @@ form-control {
   }
   .logo-title:hover{
     color: #FFFF00;
+  }
+  .user-position{
+    position: absolute; top: 370px; left: 200px;
+  }
+  .ranking-position{
+    position: absolute; top: 350px; left: 955px;
   }

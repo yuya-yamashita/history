@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    @user = User.all
     @tags = Tag.all
     @tags_count = ActsAsTaggableOn::Tag.most_used(10)
   end

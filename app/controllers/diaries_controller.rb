@@ -1,4 +1,10 @@
 class DiariesController < ApplicationController
+  before_action :set_diary, only: [:edit, :destroy]
+
+  def set_diary
+    @diary = Diary.find(params[:diary_id])
+  end
+
   def new
     @diary = Diary.new
   end
@@ -13,7 +19,6 @@ class DiariesController < ApplicationController
   end
 
   def edit
-    @diary = Diary.find(params[:diary_id])
   end
 
   def update
@@ -26,7 +31,6 @@ class DiariesController < ApplicationController
   end
 
   def destroy
-    @diary = Diary.find(params[:diary_id])
     if @diary.destroy
       redirect_to diaries_path, notice: '投稿を削除しました'
     else
@@ -36,10 +40,6 @@ class DiariesController < ApplicationController
 
   def index
     @diaries = Diary.all
-  end
-
-  def tagIndex
-    @tags = Diary.tagged_with(params[:selected_name])
   end
 
   private
