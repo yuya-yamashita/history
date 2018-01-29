@@ -1,8 +1,8 @@
 class DiariesController < ApplicationController
-  before_action :set_diary, only: [:edit, :destroy]
+  before_action :set_diary, only: [:edit, :update, :destroy]
 
   def set_diary
-    @diary = Diary.find(params[:diary_id])
+    @diary = Diary.find(params[:id])
   end
 
   def new
@@ -22,9 +22,9 @@ class DiariesController < ApplicationController
   end
 
   def update
-    @diary = Diary.find(params[:diary][:diary_id])
+    @diary = Diary.find(params[:id])
     if @diary.update(diary_params)
-      redirect_to diaries_path, notice: '投稿のの編集に成功しました'
+      redirect_to diaries_path, notice: '投稿の編集に成功しました'
     else
       render :new
     end

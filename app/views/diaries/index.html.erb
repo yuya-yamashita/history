@@ -19,10 +19,10 @@
               <div class="comment-text"><%= comment.content %></div>
               <div class="delete-button-style">
                 コメントを
-                <%= link_to comments_edit_path(diary_id: diary.id,comment_id: comment.id) do %>
+                <%= link_to edit_comment_path(id: comment.id,diary_id: diary.id) do %>
                 <%="編集する"%>
                 <% end %>
-                <%= link_to comments_delete_url(diary_id: diary.id,comment_id: comment.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+                <%= link_to comment_path(id: comment.id,diary_id: diary.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
                 <%="削除する"%>
                 <% end %>
               </div>
@@ -39,10 +39,10 @@
               </a>
               <div class="delete-button-style">
                 記事を
-                <%= link_to diaries_edit_path(diary_id: diary.id) do %>
+                <%= link_to edit_diary_path(id: diary.id) do %>
                 <%="編集する"%>
                 <% end %>
-                <%= link_to diaries_delete_url(diary_id: diary.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+                <%= link_to diary_path(id: diary.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
                 <%="削除する"%>
                 <% end %>
               </div>

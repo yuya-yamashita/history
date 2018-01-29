@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:edit, :destroy]
+  before_action :set_comment, only: [:edit, :update, :destroy]
 
   def set_comment
-    @comment = Comment.find(params[:comment_id])
+    @comment = Comment.find(params[:id])
   end
 
   def new
@@ -23,7 +23,6 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment = Comment.find(params[:comment][:comment_id])
     if @comment.update(comment_params)
       redirect_to diaries_path, notice: 'コメントの編集に成功しました'
     else
