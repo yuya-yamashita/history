@@ -22,7 +22,6 @@ class DiariesController < ApplicationController
   end
 
   def update
-    @diary = Diary.find(params[:id])
     if @diary.update(diary_params)
       redirect_to diaries_path, notice: '投稿の編集に成功しました'
     else
