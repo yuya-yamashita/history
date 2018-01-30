@@ -22,35 +22,23 @@
           <ul class="nav navbar-nav navbar-right">
             <% if logged_in? %>
             <li>
-              <%= link_to users_path do %>
-                <%="マイページ"%>
-              <% end %>
+              <%= link_to "マイページ", users_path%>
             </li>
               <li>
-                <%= link_to new_diary_path do %>
-                  <%= '日記投稿' %>
-                <% end %>
+                <%= link_to "日記投稿", new_diary_path%>
               </li>
               <li>
-                <%= link_to diaries_path do %>
-                  <%= '投稿一覧' %>
-                <% end %>
+                <%= link_to "投稿一覧", diaries_path%>
               </li>
               <li>
-                <%= link_to logout_path, method: :delete do %>
-                  <%="ログアウト"%>
-                <% end %>
+                <%= link_to "ログアウト", logout_path, method: :delete%>
               </li>
             <% else %>
               <li>
-                <%= link_to new_user_path do %>
-                  <%="新規登録"%>
-                <% end %>
+                <%= link_to "新規登録", new_user_path%>
               </li>
               <li>
-                <%= link_to login_path do %>
-                  <%="ログイン"%>
-                <% end %>
+                <%= link_to "ログイン", login_path%>
               </li>
             <% end %>
           </ul>

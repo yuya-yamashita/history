@@ -1,10 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
 
-  def set_comment
-    @comment = Comment.find(params[:id])
-  end
-
   def new
     @comment = Comment.new
   end
@@ -43,4 +39,9 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:diary_id, :content)
   end
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
+
 end

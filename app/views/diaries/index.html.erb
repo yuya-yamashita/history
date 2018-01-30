@@ -10,21 +10,15 @@
           <div class='tag-list'><%= diary.label_list %></div>
 		      <div class='diary-text'><%= diary.body %></div>
           <p class="comment-button-style">
-              <%= link_to new_comment_path(diary_id: diary.id) do %>
-                <%= "コメントする" %>
-              <% end %>
+              <%= link_to "コメントする", new_comment_path(diary.id)%>
           </p>
             <p class="give-comment">貰ったコメント</p>
             <% diary.comments.each do |comment| %>
               <div class="comment-text"><%= comment.content %></div>
               <div class="delete-button-style">
                 コメントを
-                <%= link_to edit_comment_path(id: comment.id,diary_id: diary.id) do %>
-                <%="編集する"%>
-                <% end %>
-                <%= link_to comment_path(id: comment.id,diary_id: diary.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
-                <%="削除する"%>
-                <% end %>
+                <%= link_to "編集する", edit_comment_path(comment.id)%>
+                <%= link_to "削除する", comment_path(comment.id, diary.id), method: :delete, data: {confirm: "本当に削除しますか？"}%>
               </div>
             <% end %>
             <div class="right-position">
@@ -39,12 +33,8 @@
               </a>
               <div class="delete-button-style">
                 記事を
-                <%= link_to edit_diary_path(id: diary.id) do %>
-                <%="編集する"%>
-                <% end %>
-                <%= link_to diary_path(id: diary.id), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
-                <%="削除する"%>
-                <% end %>
+                <%= link_to "編集する", edit_diary_path(diary.id)%>
+                <%= link_to "削除する", diary_path(diary.id), method: :delete, data: {confirm: "本当に削除しますか？"}%>
               </div>
           </div>
 		    	</div>
